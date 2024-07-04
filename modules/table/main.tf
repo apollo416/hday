@@ -8,6 +8,11 @@ resource "aws_dynamodb_table" "this" {
   write_capacity              = 5
   hash_key                    = "id"
 
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
   server_side_encryption {
     enabled     = true
     kms_key_arn = var.kms_key

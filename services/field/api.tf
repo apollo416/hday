@@ -2,7 +2,7 @@
 module "api" {
   source      = "../../modules/api"
   name        = "field_api"
-  description = "The API for the hday service"
+  description = "The API for the field service"
 }
 
 resource "aws_api_gateway_resource" "crops" {

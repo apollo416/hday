@@ -5,7 +5,7 @@ module "table_crops" {
   kms_key = var.key
 
   principals = [
-    module.crops_post.lambda_role,
+    module.crop_add.lambda_role,
     module.crop_get.lambda_role,
     module.crop_plant.lambda_role,
     module.crop_harvest.lambda_role,

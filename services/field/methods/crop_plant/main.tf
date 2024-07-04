@@ -76,6 +76,8 @@ resource "aws_api_gateway_integration_response" "http_409" {
   http_method       = aws_api_gateway_method.this.http_method
   status_code       = aws_api_gateway_method_response.http_409.status_code
   selection_pattern = "Crop already planted"
+
+  depends_on = [aws_api_gateway_integration.this]
 }
 
 
@@ -93,6 +95,8 @@ resource "aws_api_gateway_integration_response" "http_500" {
   http_method       = aws_api_gateway_method.this.http_method
   status_code       = aws_api_gateway_method_response.http_500.status_code
   selection_pattern = "Unknown error"
+
+  depends_on = [aws_api_gateway_integration.this]
 }
 
 
