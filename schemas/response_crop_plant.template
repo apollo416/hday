@@ -1,0 +1,7 @@
+#set($inputRoot = $input.path('$'))
+{
+    "id": "$inputRoot.id",
+    "cultivar": "$inputRoot.cultivar",
+    "cultivar_start": "$inputRoot.cultivar_start",
+    "generation": $inputRoot.generation
+}

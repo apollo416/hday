@@ -1,0 +1,6 @@
+variable "workspace_iam_role" {
+  type        = string
+  description = "the iam role to assume for the workspace"
+  nullable    = false
+  sensitive   = true
+}

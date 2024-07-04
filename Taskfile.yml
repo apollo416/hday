@@ -1,0 +1,21 @@
+version: '3'
+
+tasks:
+  fmt:
+    cmds:
+      - ruff format
+      - terraform fmt -recursive
+  validate:
+    deps:
+      - init
+    cmds:
+      - terraform validate
+  init:
+    cmds:
+      - terraform init
+  apply:
+    deps:
+      - fmt
+      - validate
+    cmds:
+      - terraform apply -auto-approve

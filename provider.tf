@@ -1,0 +1,14 @@
+provider "aws" {
+  region = "us-east-1"
+
+  assume_role {
+    role_arn = var.workspace_iam_role
+  }
+
+  default_tags {
+    tags = {
+      Project            = "hday"
+      TerraformWorkspace = terraform.workspace
+    }
+  }
+}
