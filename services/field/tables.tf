@@ -9,5 +9,6 @@ module "table_crops" {
     module.crop_get.lambda_role,
     module.crop_plant.lambda_role,
     module.crop_harvest.lambda_role,
+    module.crop_update.lambda_role,
   ]
 }
