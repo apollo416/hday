@@ -11,8 +11,8 @@ resource "aws_api_gateway_resource" "crops" {
   path_part   = "crops"
 }
 
-module "crops_post" {
-  source          = "./methods/crops_post"
+module "crop_add" {
+  source          = "./methods/crop_add"
   api             = module.api.id
   resource        = aws_api_gateway_resource.crops.id
   validator       = module.api.validator

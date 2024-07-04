@@ -2,7 +2,7 @@
 module "lambda" {
   source  = "../../../../modules/lambda"
   service = "field"
-  name    = "crops_post"
+  name    = "crop_add"
   key     = var.key
   signer  = var.signer
   api     = var.api
@@ -46,7 +46,7 @@ resource "aws_api_gateway_integration_response" "http_200" {
   status_code = aws_api_gateway_method_response.http_200.status_code
 
   response_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/response_crops_post.template")
+    "application/json" = file("${path.module}/../../../../schemas/response_crop_add.template")
   }
 
   depends_on = [aws_api_gateway_integration.this]
