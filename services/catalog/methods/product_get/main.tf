@@ -51,10 +51,6 @@ resource "aws_api_gateway_integration_response" "http_200" {
   http_method = aws_api_gateway_integration.this.http_method
   status_code = aws_api_gateway_method_response.http_200.status_code
 
-  response_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/response_product_get.template")
-  }
-
   depends_on = [aws_api_gateway_integration.this]
 }
 

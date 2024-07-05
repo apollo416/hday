@@ -1,268 +1,344 @@
 [
     {
-        "id": "cc6927fb-9eac-45d7-a032-c78382de8b2f",
+        "id": "ac1c8f3c-e195-5bdb-bac5-ccc98e56f060",
         "slug": "wheat",
         "name": "Wheat",
         "maturation_time": 2,
-        "sell_price": 3
+        "sell_price": 3,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "2f9dd7c6-e72b-4996-ae02-a51fabd5b999",
+        "id": "f779c3ce-b90b-5dc4-9a9e-b392e667fa15",
         "slug": "corn",
         "name": "Corn",
         "maturation_time": 5,
-        "sell_price": 7
+        "sell_price": 7,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "1edc9826-5d8f-4dac-9b46-29099d09212c",
+        "id": "9f17a1b2-3b1f-55cf-9ca8-490c2a3ab191",
         "slug": "soybean",
         "name": "Soybean",
         "maturation_time": 20,
-        "sell_price": 10
+        "sell_price": 10,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "d5faa5fe-abc6-44fa-b4eb-72387d4f6115",
+        "id": "9d652358-467d-5045-b0e3-647fd570efd2",
         "slug": "sugarcane",
         "name": "Sugarcane",
         "maturation_time": 30,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "eda5555f-648d-4c8b-be82-838b26086e0b",
+        "id": "f5926efa-4529-5bb5-b928-636c48a39b07",
         "slug": "carrot",
         "name": "Carrot",
         "maturation_time": 10,
-        "sell_price": 7
+        "sell_price": 7,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "0502ee5c-5595-423a-80c9-610da0f4b9c8",
+        "id": "96513749-213c-5a18-9fe9-e4b23304ad78",
         "slug": "indigo",
         "name": "Indigo",
         "maturation_time": 120,
-        "sell_price": 25
+        "sell_price": 25,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "3b03f4bd-a2e1-4341-b97d-a95e49685d55",
+        "id": "0c40570f-4f95-5ece-910d-39bd85f4d82e",
         "slug": "pumpkin",
         "name": "Pumpkin",
         "maturation_time": 180,
-        "sell_price": 32
+        "sell_price": 32,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "fb5c95dd-0449-4b2d-89c8-45ce89141426",
+        "id": "37bd68e9-a289-5c81-b51f-189f8ad6205d",
         "slug": "cotton",
         "name": "Cotton",
         "maturation_time": 150,
-        "sell_price": 28
+        "sell_price": 28,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "0811f0bb-3073-4f2e-8e24-9ca61231666c",
+        "id": "7052c4f1-9d5b-5313-9b3a-660eed6e0516",
         "slug": "chili-pepper",
         "name": "Chili Pepper",
         "maturation_time": 240,
-        "sell_price": 36
+        "sell_price": 36,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "c352767b-9bf1-4f55-80e5-68648364457c",
+        "id": "c96b5391-bf16-5437-88ff-ec300f409c59",
         "slug": "tomato",
         "name": "Tomato",
         "maturation_time": 360,
-        "sell_price": 43
+        "sell_price": 43,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "47ddfa8a-a85d-4b20-9abc-3cd08311cfd0",
+        "id": "3f7c63c9-40e5-517c-b010-ffc062825d55",
         "slug": "strawberry",
         "name": "Strawberry",
         "maturation_time": 480,
-        "sell_price": 50
+        "sell_price": 50,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "1d8b32ba-a20e-4735-b419-fea4edbb9a85",
+        "id": "8e63ce33-3cbc-5e33-932b-485f2551426d",
         "slug": "potato",
         "name": "Potato",
         "maturation_time": 220,
-        "sell_price": 36
+        "sell_price": 36,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "2e122c5a-31d5-4a9c-93c3-831c2d08cc85",
+        "id": "f5c7a587-9e35-54d1-93e9-e4ad1ab88d35",
         "slug": "asparagus",
         "name": "Asparagus",
         "maturation_time": 360,
-        "sell_price": 43
+        "sell_price": 43,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "46554573-9bb7-4a9f-9af6-7f4f37fc4a4e",
+        "id": "d4ebe163-bb24-5076-8469-c2c24cb5e354",
         "slug": "sesame",
         "name": "Sesame",
         "maturation_time": 60,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "44194cc1-5f17-4f71-82ae-b7f98dfa2755",
+        "id": "daa4ed26-e489-55f3-a758-ae390ccf412e",
         "slug": "pineapple",
         "name": "Pineapple",
         "maturation_time": 30,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "6726e323-28fc-4aa3-9a08-1900966c7827",
+        "id": "e0f45f9d-4e9d-5cf9-a3f6-04c745d1f676",
         "slug": "lily",
         "name": "Lily",
         "maturation_time": 90,
-        "sell_price": 21
+        "sell_price": 21,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "1ef600e6-9b47-4581-9f4a-582a14259f16",
+        "id": "2a326b31-e236-5196-8f91-3e7b285d03c2",
         "slug": "rice",
         "name": "Rice",
         "maturation_time": 45,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "93d69399-1953-412c-b007-67c68e0c3913",
+        "id": "f3c974ff-7c44-5812-865a-8532823f360d",
         "slug": "lettuce",
         "name": "Lettuce",
         "maturation_time": 210,
-        "sell_price": 32
+        "sell_price": 32,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "4298318f-880d-44d9-baaa-508d1fe154f1",
+        "id": "a5ccff03-0ad1-5028-9410-3493f40d2352",
         "slug": "garlic",
         "name": "Garlic",
         "maturation_time": 30,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "7bb5edf4-8d80-4a87-af29-4b6a52c8c6ae",
+        "id": "d633b649-a9bf-5018-96ff-3178faaf6d63",
         "slug": "sunflower",
         "name": "Sunflower",
         "maturation_time": 90,
-        "sell_price": 21
+        "sell_price": 21,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "83e913f7-a285-4175-a4b5-ed0d37684fcc",
+        "id": "9192f02e-17b4-54d3-8ca3-d88beffa764d",
         "slug": "cabbage",
         "name": "Cabbage",
         "maturation_time": 45,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "ccdb80e2-6d93-4d63-a25b-f6d82d819313",
+        "id": "9bf8ffff-ac9d-5230-83e7-22537ac3e14c",
         "slug": "onion",
         "name": "Onion",
         "maturation_time": 300,
-        "sell_price": 39
+        "sell_price": 39,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "143edc17-e930-4719-938b-58b6f3a18cb0",
+        "id": "9f8702b1-7e11-5cf1-a884-39276ee09026",
         "slug": "cucumber",
         "name": "Cucumber",
         "maturation_time": 35,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "69860b53-f98f-47f4-b6b8-d5701233df09",
+        "id": "3a2d87a7-4566-555d-becd-17d9a3d96bcd",
         "slug": "beetroot",
         "name": "Beetroot",
         "maturation_time": 40,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "05cde090-2995-4d50-82f3-603f5975926f",
+        "id": "c9dbce47-e8f9-5d18-a3af-c03d31080bba",
         "slug": "bell-pepper",
         "name": "Bell Pepper",
         "maturation_time": 270,
-        "sell_price": 36
+        "sell_price": 36,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "82d636bc-2f1f-423a-a31b-e86282794458",
+        "id": "75f98eca-f5ee-5128-ac57-ee07c17ac05e",
         "slug": "ginger",
         "name": "Ginger",
         "maturation_time": 150,
-        "sell_price": 28
+        "sell_price": 28,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "cc09a431-c240-4189-b5e0-9365dbbc3eb3",
+        "id": "e57e704c-9459-55ae-9245-a3c6b86040bb",
         "slug": "tea-leaf",
         "name": "Tea Leaf",
         "maturation_time": 390,
-        "sell_price": 43
+        "sell_price": 43,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "809d9ea1-e0e0-4c4f-9476-d30413000304",
+        "id": "ebc23961-2727-5436-ac5f-4efebecc1574",
         "slug": "peony",
         "name": "Peony",
         "maturation_time": 240,
-        "sell_price": 36
+        "sell_price": 36,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "c4d2fb07-7af4-4f30-8003-007016c01a49",
+        "id": "4057f875-17ea-5abc-a28a-a670e90ded2b",
         "slug": "broccoli",
         "name": "Broccoli",
         "maturation_time": 90,
-        "sell_price": 21
+        "sell_price": 21,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "1df70fe1-2b7c-4cf0-befb-2fabccbec4a1",
+        "id": "d9dcbe88-79f2-50c0-ad5b-b0823b6fbca0",
         "slug": "grapes",
         "name": "Grapes",
         "maturation_time": 180,
-        "sell_price": 32
+        "sell_price": 32,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "fbd03375-837e-4625-88d8-6a3b5176bbec",
+        "id": "376b1dcc-a299-5709-a7d6-e492b7b3a44c",
         "slug": "mint",
         "name": "Mint",
         "maturation_time": 180,
-        "sell_price": 32
+        "sell_price": 32,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "83fb3ab7-d29a-4c48-832b-3c4396d22fab",
+        "id": "fb568453-1f5d-55bf-ac78-89d27252f085",
         "slug": "passion-fruit",
         "name": "Passion Fruit",
         "maturation_time": 60,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "185cfd02-755f-4d96-ad15-10fde4f3e31c",
+        "id": "1179855d-7fb3-5961-88f9-c284f01474f6",
         "slug": "mushroom",
         "name": "Mushroom",
         "maturation_time": 20,
-        "sell_price": 10
+        "sell_price": 10,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "132c7627-1b70-45d6-95ab-c034f41811cb",
+        "id": "58efbb4b-c8ef-557c-83ea-f3c144a73e22",
         "slug": "eggplant",
         "name": "Eggplant",
         "maturation_time": 40,
-        "sell_price": 14
+        "sell_price": 14,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "81055176-073a-4b4c-be31-0d36dcb2ff70",
+        "id": "859986c9-723b-53a5-8511-1f0f8ecb3f93",
         "slug": "watermelon",
         "name": "Watermelon",
         "maturation_time": 300,
-        "sell_price": 39
+        "sell_price": 39,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "4ee60fae-10f1-4ed9-8aea-c79351f7c818",
+        "id": "9ae143e0-5925-585b-9fb2-0d4b5c6d14f9",
         "slug": "clay",
         "name": "Clay",
         "maturation_time": 110,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "f074870d-738f-49b6-87e8-d162c47a6ff7",
+        "id": "634f85c6-9213-5425-8ef8-6e746eb9f7d6",
         "slug": "chickpea",
         "name": "Chickpea",
         "maturation_time": 60,
-        "sell_price": 18
+        "sell_price": 18,
+        "source": "crop",
+        "yield": 2
     },
     {
-        "id": "0e9f1d87-d3d4-4589-b986-8764b4b60751",
+        "id": "d4062e50-40e6-59a3-a506-b7975b4ce931",
         "slug": "oats",
         "name": "Oats",
         "maturation_time": 7,
-        "sell_price": 7
+        "sell_price": 7,
+        "source": "crop",
+        "yield": 2
     }
 ]

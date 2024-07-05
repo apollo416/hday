@@ -14,16 +14,22 @@
             "format": "uuid",
             "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
         },
+        "slug": {
+            "type" : "string"
+        },
         "name": {
             "type" : "string"
         },
-        "type": {
+        "source": {
             "type" : "string"
         },
-        "yeld": {
+        "yield": {
             "type" : "integer"
         },
-        "price": {
+        "sell_price": {
+            "type" : "integer"
+        },
+        "maturation_time": {
             "type" : "integer"
         }
     }

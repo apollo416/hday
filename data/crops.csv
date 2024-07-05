@@ -1,38 +1,39 @@
-Wheat	2	3	crop
-Corn	5	7	crop
-Soybean	20	10	crop
-Sugarcane	30	14	crop
-Carrot	10	7	crop
-Indigo	120	25	crop
-Pumpkin	180	32	crop
-Cotton	150	28	crop
-Chili Pepper	240	36	crop
-Tomato	360	43	crop
-Strawberry	480	50	crop
-Potato	220	36	crop
-Asparagus	360	43	crop
-Sesame	60	18	crop
-Pineapple	30	14	crop
-Lily	90	21	crop
-Rice	45	18	crop
-Lettuce	210	32	crop
-Garlic	30	14	crop
-Sunflower	90	21	crop
-Cabbage	45	18	crop
-Onion	300	39	crop
-Cucumber	35	14	crop
-Beetroot	40	14	crop
-Bell Pepper	270	36	crop
-Ginger	150	28	crop
-Tea Leaf	390	43	crop
-Peony	240	36	crop
-Broccoli	90	21	crop
-Grapes	180	32	crop
-Mint	180	32	crop
-Passion Fruit	60	18	crop
-Mushroom	20	10	crop
-Eggplant	40	14	crop
-Watermelon	300	39	crop
-Clay	110	18	crop
-Chickpea	60	18	crop
-Oats	7	7	crop
+Name,Time,Price,Type,Yeild
+Wheat,2,3,crop,2
+Corn,5,7,crop,2
+Soybean,20,10,crop,2
+Sugarcane,30,14,crop,2
+Carrot,10,7,crop,2
+Indigo,120,25,crop,2
+Pumpkin,180,32,crop,2
+Cotton,150,28,crop,2
+Chili Pepper,240,36,crop,2
+Tomato,360,43,crop,2
+Strawberry,480,50,crop,2
+Potato,220,36,crop,2
+Asparagus,360,43,crop,2
+Sesame,60,18,crop,2
+Pineapple,30,14,crop,2
+Lily,90,21,crop,2
+Rice,45,18,crop,2
+Lettuce,210,32,crop,2
+Garlic,30,14,crop,2
+Sunflower,90,21,crop,2
+Cabbage,45,18,crop,2
+Onion,300,39,crop,2
+Cucumber,35,14,crop,2
+Beetroot,40,14,crop,2
+Bell Pepper,270,36,crop,2
+Ginger,150,28,crop,2
+Tea Leaf,390,43,crop,2
+Peony,240,36,crop,2
+Broccoli,90,21,crop,2
+Grapes,180,32,crop,2
+Mint,180,32,crop,2
+Passion Fruit,60,18,crop,2
+Mushroom,20,10,crop,2
+Eggplant,40,14,crop,2
+Watermelon,300,39,crop,2
+Clay,110,18,crop,2
+Chickpea,60,18,crop,2
+Oats,7,7,crop,2

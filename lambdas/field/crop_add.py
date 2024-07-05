@@ -19,7 +19,6 @@ metrics = Metrics()
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("crops")
 
-
 @metrics.log_metrics
 @logger.inject_lambda_context(log_event=True)
 @tracer.capture_lambda_handler
