@@ -1,8 +1,8 @@
 
 module "lambda" {
   source  = "../../../../modules/lambda"
-  service = "field"
-  name    = "crop_get"
+  service = "catalog"
+  name    = "product_get"
   key     = var.key
   signer  = var.signer
   api     = var.api
@@ -31,7 +31,7 @@ resource "aws_api_gateway_integration" "this" {
   uri                     = module.lambda.invoke_arn
 
   request_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/request_crop_get.template")
+    "application/json" = file("${path.module}/../../../../schemas/request_product_get.template")
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_api_gateway_method_response" "http_200" {
   http_method = aws_api_gateway_method.this.http_method
   status_code = "200"
   response_models = {
-    "application/json" = "Crop"
+    "application/json" = "Product"
   }
 }
 
@@ -52,7 +52,7 @@ resource "aws_api_gateway_integration_response" "http_200" {
   status_code = aws_api_gateway_method_response.http_200.status_code
 
   response_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/response_crop_get.template")
+    "application/json" = file("${path.module}/../../../../schemas/response_product_get.template")
   }
 
   depends_on = [aws_api_gateway_integration.this]
@@ -70,7 +70,7 @@ resource "aws_api_gateway_integration_response" "http_404" {
   resource_id       = var.resource
   http_method       = aws_api_gateway_integration.this.http_method
   status_code       = aws_api_gateway_method_response.http_404.status_code
-  selection_pattern = "Crop not found"
+  selection_pattern = "Product not found"
 
   depends_on = [aws_api_gateway_integration.this]
 }

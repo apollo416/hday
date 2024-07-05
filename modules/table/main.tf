@@ -28,7 +28,8 @@ data "aws_iam_policy_document" "this" {
     actions = [
       "dynamodb:GetItem",
       "dynamodb:PutItem",
-      "dynamodb:UpdateItem"
+      "dynamodb:UpdateItem",
+      "dynamodb:BatchWriteItem"
     ]
 
     dynamic "principals" {

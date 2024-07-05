@@ -38,7 +38,7 @@ resource "aws_lambda_function" "this" {
     variables = {
       AWS_LAMBDA_LOG_LEVEL         = "INFO",
       POWERTOOLS_METRICS_NAMESPACE = "hday",
-      POWERTOOLS_SERVICE_NAME      = "field"
+      POWERTOOLS_SERVICE_NAME      = var.service
     }
   }
 }
@@ -86,8 +86,20 @@ resource "aws_sqs_queue" "this" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_file = "${path.module}/../../lambdas/${var.service}/${var.name}.py"
-  output_path = "${path.module}/../../lambdas/${var.service}/${var.name}.zip"
+  output_path = "${path.root}/lambdas/${var.service}/${var.name}.zip"
+
+  source {
+    content  = file("${path.root}/lambdas/${var.service}/${var.name}.py")
+    filename = "${var.name}.py"
+  }
+
+  dynamic "source" {
+    for_each = var.include_files
+    content {
+      content  = file(source.value.content)
+      filename = source.value.filename
+    }
+  }
 }
 resource "aws_iam_role_policy_attachment" "basic_execution_policy" {
   role       = aws_iam_role.this.name
@@ -107,6 +119,11 @@ resource "aws_iam_role_policy_attachment" "xray_policy" {
 resource "aws_iam_role_policy_attachment" "sqs_policy" {
   role       = aws_iam_role.this.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSQSFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "dynamodb_policy" {
+  role       = aws_iam_role.this.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
 }
 
 resource "aws_lambda_permission" "allow_api" {

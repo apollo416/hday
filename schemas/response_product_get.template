@@ -2,5 +2,6 @@
 {
     "id": "$inputRoot.id",
     "name": "$inputRoot.name",
-    "yeld": $inputRoot.yeld
+    "yeld": $inputRoot.yeld,
+    "price": $inputRoot.price
 }

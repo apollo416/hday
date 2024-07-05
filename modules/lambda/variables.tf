@@ -23,3 +23,12 @@ variable "api" {
   type        = string
   description = "API Gateway ID"
 }
+
+variable "include_files" {
+  type = list(object({
+    content  = string
+    filename = string
+  }))
+  description = "List of files to include in the lambda package"
+  default     = []
+}

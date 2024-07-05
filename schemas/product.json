@@ -17,7 +17,13 @@
         "name": {
             "type" : "string"
         },
+        "type": {
+            "type" : "string"
+        },
         "yeld": {
+            "type" : "integer"
+        },
+        "price": {
             "type" : "integer"
         }
     }
