@@ -1,11 +1,14 @@
+import os
 import boto3
 import http.client as httpclient
 import requests
 from behave import given, when, then
 
 sts_client = boto3.client("sts")
+TEST_ASSUME_ROLE = os.getenv("TEST_ASSUME_ROLE")
+
 response = sts_client.assume_role(
-    RoleArn="***REMOVED***",
+    RoleArn=TEST_ASSUME_ROLE,
     RoleSessionName="tmp",
 )
 credentials = response["Credentials"]
