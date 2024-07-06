@@ -9,46 +9,53 @@ module "lambda" {
   global_layer = var.global_layer
 }
 
-resource "aws_api_gateway_method" "this" {
+resource "aws_api_gateway_method" "post" {
   # checkov:skip=CKV_AWS_59:Ensure there is no open access to backend resources through API
   rest_api_id   = var.api
   resource_id   = var.resource
   http_method   = "POST"
   authorization = "NONE"
-  request_models = {
-    "application/json" = "Empty"
-  }
-  request_validator_id = var.validator
 }
 
-resource "aws_api_gateway_integration" "this" {
+resource "aws_api_gateway_integration" "post" {
   rest_api_id             = var.api
   resource_id             = var.resource
-  http_method             = aws_api_gateway_method.this.http_method
+  http_method             = aws_api_gateway_method.post.http_method
   integration_http_method = "POST"
-  type                    = "AWS"
+  type                    = "AWS_PROXY"
   uri                     = module.lambda.invoke_arn
 }
 
-resource "aws_api_gateway_method_response" "http_200" {
+resource "aws_api_gateway_method_response" "http_201" {
   rest_api_id = var.api
   resource_id = var.resource
-  http_method = aws_api_gateway_method.this.http_method
-  status_code = "200"
+  http_method = aws_api_gateway_method.post.http_method
+  status_code = "201"
   response_models = {
     "application/json" = var.resource_schema
   }
 }
 
-resource "aws_api_gateway_integration_response" "http_200" {
+resource "aws_api_gateway_method" "get" {
+  # checkov:skip=CKV_AWS_59:Ensure there is no open access to backend resources through API
+  rest_api_id   = var.api
+  resource_id   = var.resource
+  http_method   = "GET"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "get" {
+  rest_api_id             = var.api
+  resource_id             = var.resource
+  http_method             = aws_api_gateway_method.get.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = module.lambda.invoke_arn
+}
+
+resource "aws_api_gateway_method_response" "http_405" {
   rest_api_id = var.api
   resource_id = var.resource
-  http_method = aws_api_gateway_method.this.http_method
-  status_code = aws_api_gateway_method_response.http_200.status_code
-
-  response_templates = {
-    "application/json" = file("${path.root}/schemas/response_crop_add.template")
-  }
-
-  depends_on = [aws_api_gateway_integration.this]
+  http_method = aws_api_gateway_method.get.http_method
+  status_code = "405"
 }

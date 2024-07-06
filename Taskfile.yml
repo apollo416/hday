@@ -19,3 +19,8 @@ tasks:
       - validate
     cmds:
       - terraform apply -auto-approve
+  behave:
+    deps:
+      - fmt
+    cmds:
+      - behave

@@ -1,4 +1,5 @@
 import uuid
+import json
 import boto3
 from datetime import datetime
 from aws_xray_sdk.core import patch_all
@@ -24,6 +25,13 @@ table = dynamodb.Table("crops")
 def handler(event, context: LambdaContext):
     logger.info("Adding a new crop")
 
+    if event["httpMethod"] != "POST":
+        return {
+            "statusCode": 405,
+            "headers": {"Content-Type": "application/json"},
+            "body": json.dumps(event),
+        }
+
     crop_id = str(uuid.uuid4())
 
     item = {
@@ -40,4 +48,8 @@ def handler(event, context: LambdaContext):
 
     metrics.add_metric(name="SuccessfulCropAdd", unit=MetricUnit.Count, value=1)
 
-    return item
+    return {
+        "statusCode": 201,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps(item),
+    }
