@@ -44,7 +44,8 @@ resource "aws_lambda_function" "this" {
     target_arn = aws_sqs_queue.this.arn
   }
 
-  code_signing_config_arn = var.signer
+  # TODO: Uncomment when we have a signer
+  #code_signing_config_arn = var.signer
 
   kms_key_arn = var.key
 

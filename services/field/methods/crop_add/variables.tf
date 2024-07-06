@@ -33,9 +33,3 @@ variable "global_layer" {
   type        = string
   description = "ARN of the global layer"
 }
-
-
-variable "catalog_base_url" {
-  type        = string
-  description = "API base URL"
-}

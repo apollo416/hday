@@ -43,6 +43,7 @@ def handler(event, context):
         "cultivar_end": body["cultivar_end"],
         "created": body["created"],
         "generation": body["generation"],
+        "maturation_time": body["maturation_time"],
     }
 
     metrics.add_metric(name="SuccessfulCropGet", unit=MetricUnit.Count, value=1)

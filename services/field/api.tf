@@ -12,15 +12,14 @@ resource "aws_api_gateway_resource" "crops" {
 }
 
 module "crop_add" {
-  source           = "./methods/crop_add"
-  api              = module.api.id
-  resource         = aws_api_gateway_resource.crops.id
-  validator        = module.api.validator
-  resource_schema  = aws_api_gateway_model.Crop.name
-  key              = var.key
-  signer           = var.signer
-  global_layer     = var.global_layer
-  catalog_base_url = var.catalog_invoke_url
+  source          = "./methods/crop_add"
+  api             = module.api.id
+  resource        = aws_api_gateway_resource.crops.id
+  validator       = module.api.validator
+  resource_schema = aws_api_gateway_model.Crop.name
+  key             = var.key
+  signer          = var.signer
+  global_layer    = var.global_layer
 }
 
 resource "aws_api_gateway_resource" "crop" {
@@ -47,14 +46,15 @@ resource "aws_api_gateway_resource" "plant" {
 }
 
 module "crop_plant" {
-  source          = "./methods/crop_plant"
-  api             = module.api.id
-  resource        = aws_api_gateway_resource.plant.id
-  validator       = module.api.validator
-  resource_schema = aws_api_gateway_model.Crop.name
-  key             = var.key
-  signer          = var.signer
-  global_layer    = var.global_layer
+  source           = "./methods/crop_plant"
+  api              = module.api.id
+  resource         = aws_api_gateway_resource.plant.id
+  validator        = module.api.validator
+  resource_schema  = aws_api_gateway_model.Crop.name
+  key              = var.key
+  signer           = var.signer
+  global_layer     = var.global_layer
+  catalog_base_url = var.catalog_invoke_url
 }
 
 resource "aws_api_gateway_resource" "harvest" {

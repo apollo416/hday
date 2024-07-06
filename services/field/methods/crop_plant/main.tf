@@ -7,6 +7,9 @@ module "lambda" {
   signer       = var.signer
   api          = var.api
   global_layer = var.global_layer
+  environments = {
+    CATALOG_BASE_URL = var.catalog_base_url
+  }
 }
 
 resource "aws_api_gateway_method" "this" {
