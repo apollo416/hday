@@ -32,7 +32,7 @@ resource "aws_api_gateway_integration" "this" {
   uri                     = module.lambda.invoke_arn
 
   request_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/request_product_get.template")
+    "application/json" = file("${path.root}/schemas/request_product_get.template")
   }
 }
 

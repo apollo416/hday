@@ -36,7 +36,7 @@ resource "aws_api_gateway_integration" "this" {
   uri                     = module.lambda.invoke_arn
 
   request_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/request_crop_plant.template")
+    "application/json" = file("${path.root}/schemas/request_crop_plant.template")
   }
 }
 
@@ -57,7 +57,7 @@ resource "aws_api_gateway_integration_response" "http_200" {
   status_code = aws_api_gateway_method_response.http_200.status_code
 
   response_templates = {
-    "application/json" = file("${path.module}/../../../../schemas/response_crop_plant.template")
+    "application/json" = file("${path.root}/schemas/response_crop_plant.template")
   }
 
   depends_on = [aws_api_gateway_integration.this]

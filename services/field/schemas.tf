@@ -3,5 +3,5 @@ resource "aws_api_gateway_model" "Crop" {
   name         = "Crop"
   description  = "Crop Json Schema"
   content_type = "application/json"
-  schema       = file("${path.module}/../../schemas/crop.json")
+  schema       = file("${path.root}/schemas/crop.json")
 }
