@@ -32,3 +32,14 @@ variable "include_files" {
   description = "List of files to include in the lambda package"
   default     = []
 }
+
+variable "global_layer" {
+  type        = string
+  description = "ARN of the global layer"
+}
+
+variable "environments" {
+  type        = map(string)
+  description = "API base URL"
+  default     = {}
+}

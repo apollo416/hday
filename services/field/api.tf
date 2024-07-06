@@ -12,13 +12,15 @@ resource "aws_api_gateway_resource" "crops" {
 }
 
 module "crop_add" {
-  source          = "./methods/crop_add"
-  api             = module.api.id
-  resource        = aws_api_gateway_resource.crops.id
-  validator       = module.api.validator
-  resource_schema = aws_api_gateway_model.Crop.name
-  key             = var.key
-  signer          = var.signer
+  source           = "./methods/crop_add"
+  api              = module.api.id
+  resource         = aws_api_gateway_resource.crops.id
+  validator        = module.api.validator
+  resource_schema  = aws_api_gateway_model.Crop.name
+  key              = var.key
+  signer           = var.signer
+  global_layer     = var.global_layer
+  catalog_base_url = var.catalog_invoke_url
 }
 
 resource "aws_api_gateway_resource" "crop" {
@@ -35,6 +37,7 @@ module "crop_get" {
   resource_schema = aws_api_gateway_model.Crop.name
   key             = var.key
   signer          = var.signer
+  global_layer    = var.global_layer
 }
 
 resource "aws_api_gateway_resource" "plant" {
@@ -51,6 +54,7 @@ module "crop_plant" {
   resource_schema = aws_api_gateway_model.Crop.name
   key             = var.key
   signer          = var.signer
+  global_layer    = var.global_layer
 }
 
 resource "aws_api_gateway_resource" "harvest" {
@@ -67,6 +71,7 @@ module "crop_harvest" {
   resource_schema = aws_api_gateway_model.Crop.name
   key             = var.key
   signer          = var.signer
+  global_layer    = var.global_layer
 }
 
 module "crop_update" {
@@ -77,4 +82,45 @@ module "crop_update" {
   resource_schema = aws_api_gateway_model.Crop.name
   key             = var.key
   signer          = var.signer
+  global_layer    = var.global_layer
+}
+
+
+resource "aws_api_gateway_deployment" "this" {
+  rest_api_id = module.api.id
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_api_gateway_stage" "main" {
+  rest_api_id          = module.api.id
+  deployment_id        = aws_api_gateway_deployment.this.id
+  stage_name           = "main"
+  xray_tracing_enabled = true
+  depends_on           = [module.logger]
+
+  access_log_settings {
+    destination_arn = module.logger.arn
+    format = jsonencode({
+      "requestId" : "$context.requestId",
+      "extendedRequestId" : "$context.extendedRequestId",
+      "ip" : "$context.identity.sourceIp",
+      "caller" : "$context.identity.caller",
+      "user" : "$context.identity.user",
+      "requestTime" : "$context.requestTime",
+      "httpMethod" : "$context.httpMethod",
+      "resourcePath" : "$context.resourcePath",
+      "status" : "$context.status",
+      "protocol" : "$context.protocol",
+      "responseLength" : "$context.responseLength"
+    })
+  }
+}
+
+module "logger" {
+  source = "../../modules/logger"
+  name   = "${module.api.name}_access_logging"
+  key    = var.key
 }

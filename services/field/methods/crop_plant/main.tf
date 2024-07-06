@@ -1,11 +1,12 @@
 
 module "lambda" {
-  source  = "../../../../modules/lambda"
-  service = "field"
-  name    = "crop_plant"
-  key     = var.key
-  signer  = var.signer
-  api     = var.api
+  source       = "../../../../modules/lambda"
+  service      = "field"
+  name         = "crop_plant"
+  key          = var.key
+  signer       = var.signer
+  api          = var.api
+  global_layer = var.global_layer
 }
 
 resource "aws_api_gateway_method" "this" {

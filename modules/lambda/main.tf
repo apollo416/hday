@@ -1,3 +1,16 @@
+
+locals {
+  default_envs = {
+    AWS_LAMBDA_LOG_LEVEL         = "INFO",
+    POWERTOOLS_METRICS_NAMESPACE = "hday",
+    POWERTOOLS_SERVICE_NAME      = var.service
+  }
+  environments = merge(
+    local.default_envs,
+    var.environments
+  )
+}
+
 resource "aws_lambda_function" "this" {
   # checkov:skip=CKV_AWS_117:Ensure that AWS Lambda function is configured inside a VPC
   function_name                  = var.name
@@ -15,7 +28,7 @@ resource "aws_lambda_function" "this" {
     log_format            = "JSON"
     application_log_level = "INFO"
     system_log_level      = "INFO"
-    log_group             = aws_cloudwatch_log_group.lambda_cloudwatch_log_group.name
+    log_group             = module.logger.name
   }
   tracing_config {
     mode = "Active"
@@ -23,7 +36,8 @@ resource "aws_lambda_function" "this" {
 
   layers = [
     "arn:aws:lambda:us-east-1:580247275435:layer:LambdaInsightsExtension-Arm64:20",
-    "arn:aws:lambda:us-east-1:017000801446:layer:AWSLambdaPowertoolsPythonV2-Arm64:71"
+    "arn:aws:lambda:us-east-1:017000801446:layer:AWSLambdaPowertoolsPythonV2-Arm64:71",
+    var.global_layer
   ]
 
   dead_letter_config {
@@ -35,12 +49,15 @@ resource "aws_lambda_function" "this" {
   kms_key_arn = var.key
 
   environment {
-    variables = {
-      AWS_LAMBDA_LOG_LEVEL         = "INFO",
-      POWERTOOLS_METRICS_NAMESPACE = "hday",
-      POWERTOOLS_SERVICE_NAME      = var.service
-    }
+    variables = local.environments
   }
+}
+
+module "logger" {
+  source = "../logger"
+  name   = var.name
+  key    = var.key
+  role   = aws_iam_role.this.arn
 }
 
 
@@ -60,22 +77,6 @@ data "aws_iam_policy_document" "role_policy_data" {
 
     actions = ["sts:AssumeRole"]
   }
-}
-
-resource "aws_kms_grant" "this" {
-  name              = "grant_${var.name}_loggroup"
-  key_id            = var.key
-  grantee_principal = aws_iam_role.this.arn
-  operations        = ["Encrypt", "Decrypt", "GenerateDataKey", "DescribeKey", "Sign", "Verify"]
-}
-
-resource "aws_cloudwatch_log_group" "lambda_cloudwatch_log_group" {
-  name = "/aws/lambda/${var.name}"
-  # checkov:skip=CKV_AWS_338:Ensure CloudWatch log groups retains logs for at least 1 year
-  retention_in_days = 7
-  kms_key_id        = var.key
-
-  depends_on = [aws_kms_grant.this]
 }
 
 resource "aws_sqs_queue" "this" {

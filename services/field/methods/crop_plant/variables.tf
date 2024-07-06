@@ -28,3 +28,8 @@ variable "signer" {
   type        = string
   description = "code signer for the lambda function"
 }
+
+variable "global_layer" {
+  type        = string
+  description = "ARN of the global layer"
+}

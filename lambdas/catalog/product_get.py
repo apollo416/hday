@@ -40,7 +40,7 @@ def handler(event, context: LambdaContext):
         "source": body["source"],
         "yield": body["yield"],
         "sell_price": body["sell_price"],
-        "maturation_time": body["maturation_time"]
+        "maturation_time": body["maturation_time"],
     }
 
     metrics.add_metric(name="SuccessfulProductGet", unit=MetricUnit.Count, value=1)

@@ -12,6 +12,7 @@ module "catalog_init_lambda" {
       filename = "crops.json"
     }
   ]
+  global_layer = var.global_layer
 }
 
 # resource "aws_lambda_invocation" "init_catalog" {
