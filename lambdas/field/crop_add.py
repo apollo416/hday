@@ -36,12 +36,8 @@ def handler(event, context: LambdaContext):
 
     item = {
         "id": crop_id,
-        "cultivar": "",
-        "cultivar_start": "",
-        "cultivar_end": "",
+        "status": "idle",
         "created": datetime.now().isoformat(),
-        "generation": 0,
-        "maturation_time": 0,
     }
 
     table.put_item(Item=item)
