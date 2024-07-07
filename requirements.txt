@@ -1,0 +1,7 @@
+ruff
+boto3
+behave
+requests
+jsonschema
+aws-xray-sdk
+aws-lambda-powertools
